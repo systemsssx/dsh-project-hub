@@ -15,7 +15,7 @@
 [![Issues](https://img.shields.io/github/issues/systemsssx/dsh-project-hub?style=flat-square)](https://github.com/systemsssx/dsh-project-hub/issues)
 [![Discussions](https://img.shields.io/badge/discussions-open-8b5cf6?style=flat-square&logo=github)](https://github.com/systemsssx/dsh-project-hub/discussions)
 
-<img src="./docs/images/hero.png" width="100%" alt="DSH Project Hub — 项目工坊" />
+<img src="./docs/images/hero.jpg" width="100%" alt="DSH Project Hub — 项目工坊" />
 
 </div>
 
@@ -136,7 +136,7 @@ flowchart LR
 <br />
 
 <div align="center">
-  <img src="./docs/images/archive.png" width="720" alt="档案 Markdown" />
+  <img src="./docs/images/archive.jpg" width="720" alt="档案 Markdown" />
   <br />
   <sub><b>③ 档案即知识库</b>：frontmatter 给机器读，正文给人读；追加模式下只变更 <code>last_updated</code> 并追加记录</sub>
 </div>
