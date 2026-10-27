@@ -1,119 +1,162 @@
 <div align="center">
 
-# 🧰 DSH Project Hub · 项目工坊
+# 项目工坊 · DSH Project Hub
 
 **把「项目 · 标签档案 · 子工作区 · AI 会话」串成一条可交接的工作流。**
-*One plugin that turns DeepSeek Harness into a handover-ready project workshop.*
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
-[![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen?style=flat-square&logo=node.js&logoColor=white)](./package.json)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square)](./README.md#-环境与前置条件)
-[![Status](https://img.shields.io/badge/status-active-success?style=flat-square)](./README.md#-路线图--roadmap)
-[![Version](https://img.shields.io/github/package-json/v/systemsssx/dsh-project-hub?style=flat-square&label=version&color=8A2BE2)](./package.json)
-[![Stars](https://img.shields.io/github/stars/systemsssx/dsh-project-hub?style=flat-square)](https://github.com/systemsssx/dsh-project-hub/stargazers)
+*Projects, tag archives, isolated sub-workspaces and AI sessions — handover-ready.*
+
+[![License](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](./LICENSE)
+[![Node](https://img.shields.io/badge/node-%E2%89%A518-339933?style=flat-square&logo=node.js&logoColor=white)](./package.json)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-0ea5e9?style=flat-square)](README.md#sec-install)
+[![Status](https://img.shields.io/badge/status-active-8b5cf6?style=flat-square)](README.md#sec-roadmap)
+[![Version](https://img.shields.io/github/package-json/v/systemsssx/dsh-project-hub?style=flat-square&label=version&color=f59e0b)](./package.json)
+[![Stars](https://img.shields.io/github/stars/systemsssx/dsh-project-hub?style=flat-square&logo=github&color=fbbf24)](https://github.com/systemsssx/dsh-project-hub/stargazers)
 [![Issues](https://img.shields.io/github/issues/systemsssx/dsh-project-hub?style=flat-square)](https://github.com/systemsssx/dsh-project-hub/issues)
-[![Discussions](https://img.shields.io/badge/Discussions-join-8A2BE2?style=flat-square&logo=github)](https://github.com/systemsssx/dsh-project-hub/discussions)
+[![Discussions](https://img.shields.io/badge/discussions-open-8b5cf6?style=flat-square&logo=github)](https://github.com/systemsssx/dsh-project-hub/discussions)
 
-[✨ 它是什么](#-它是什么) · [🚀 功能亮点](#-功能亮点) · [📸 界面预览](#-界面预览) · [⚡ 快速开始](#-安装三段式) · [🧠 Computer Use](#-computer-use-模式) · [🧪 测试](#-测试与文档体系) · [🗺️ 路线图](#-路线图--roadmap) · [💬 交流](#-交流与反馈)
+<img src="./docs/images/hero.png" width="100%" alt="DSH Project Hub — 项目工坊" />
 
 </div>
 
-<p align="center"><sub>为 <a href="https://github.com/systemsssx/dsh-auto-handoff">DSH</a>（DeepSeek Harness）桌面端打造的官方风格社区插件 · v0.2.0</sub></p>
+> **一句话定位**：给 DeepSeek Harness 加一个"项目工坊"侧边栏——项目登记、两级标签档案、隔离子工作区、归档与背景注入，全部落在本机 Markdown 里。
 
 ---
+
+## 📖 目录
+
+- [它是什么](#sec-what)
+- [它解决什么问题](#sec-why)
+- [功能矩阵](#sec-features)
+- [工作流](#sec-flow)
+- [界面预览](#sec-shots)
+- [快速开始](#sec-install)
+- [Computer Use 模式](#sec-computer-use)
+- [档案格式](#sec-archive)
+- [测试与文档](#sec-tests)
+- [常见问题](#sec-faq)
+- [路线图](#sec-roadmap)
+- [Star 支持](#sec-star)
+- [交流与反馈](#sec-community)
+- [贡献](#sec-contributing)
+- [License](#sec-license)
+
+---
+
+<a id="sec-what"></a>
 
 ## ✨ 它是什么
 
-**DSH Project Hub（项目工坊）是 DeepSeek Harness 的一个侧边栏插件。**
+**DSH Project Hub（项目工坊）是 [DeepSeek Harness](https://github.com/deepseek-ai) 的一个侧边栏插件。**
 
-它解决的是一个很具体的问题：AI 编程会话是"一次性"的——关掉窗口，上下文就散了；下一次换个会话，AI 不知道这个项目做到哪、上次那个模块为什么这么改。
+它把原本"聊完就散"的 AI 编程会话，收进一套**有结构、可交接**的工作流：项目有花名册，模块有大/小两级档案，任务落在隔离子工作区，干完的活写回档案，下次开工自动带上前情提要。
 
-项目工坊把散落的会话，收进一套**有结构、可交接**的工作流里：
+所有数据都是你本机的 Markdown / JSON 文件——没有数据库、没有云端、没有账号。
 
-| 你会得到 | 具体是什么 |
-|---|---|
-| 🗂️ **项目花名册** | 一个总工作区下的所有项目，一眼可见、可登记、可移出（移出只动注册表，文件不删） |
-| 🏷️ **两级标签档案柜** | 「大标签 / 小标签」两层目录，每个模块一份 Markdown 档案，带 YAML frontmatter |
-| 🌿 **三层子工作区** | 无标签 → 项目根；单标签 → `subtasks/<小标签>`；多标签 → `subtasks/combo-*`，开工即隔离 |
-| 🔁 **归档闭环** | 会话结束写回档案；下次开同类任务，档案自动作为背景注入开场 Prompt |
-| 🖥️ **Computer Use 模式** | 一键在新会话里驱动 GUI（截图、鼠标、键盘），适合需要看界面的任务 |
-
-一句话：**让 AI 的每一次干活，都沉淀成下一个 AI 的起点。**（so the next agent starts where the last one stopped.）
+<div align="center">
+<sub>🧩 插件本体零第三方依赖 · 🖥️ 桌面壳 + 普通 Web 模式通用 · 🔒 不联网、不上传</sub>
+</div>
 
 ---
 
-## 🚀 功能亮点
+<a id="sec-why"></a>
 
-### 📇 项目登记与花名册
-- 「＋ 新建项目」只填三项：项目 id、显示名、默认大标签。
-- 自动在总工作区下创建 `<项目>/.dsh-hub/docs/` 与 `<项目>/subtasks/`，并写入花名册 `projects.json`。
-- 总工作区首次使用时，自动探测已存在的目录并**播种**成项目，不用逐个手搬。
-- 移出列表只改注册表：**磁盘上的项目文件与档案一份不动**，随时可重新登记。
+## 🎯 它解决什么问题
 
-### 🗄️ 大标签 / 小标签档案柜
-- 档案路径固定为 `<项目>/.dsh-hub/docs/<大标签>/<小标签>.md`——人类可读、Git 可 diff、AI 可注入。
-- 每份档案带机器可读的 **frontmatter**（`project_id` / `big_tag` / `small_tag` / `workspace_path` / `last_updated` / `session_id` / `status`），
-  侧边栏的档案计数与排序全靠它。
-- 正文采用「核心目标 / 实现细节 / 涉及文件 / 验证方式 / 下一步」五段式模板。
+AI 会忘事，而项目不会。真正贵的是"重新讲一遍这个项目做到哪了"。
 
-### 🌿 一键开子工作区 + 背景注入
-- 「启动会话」里勾选小标签，插件按三层规则算出物理目录，并把 **cwd 直接钉在子工作区**。
-- 同时读取该项目已有档案，拼成开场背景注入新会话，AI 睁眼就知道前情提要。
-- 会话模式可选：**标准模式** 或 **Computer Use 模式**（见下文）。
+| 场景 | 手工维护（没有插件） | 用项目工坊 |
+|---|---|---|
+| 🗂️ 项目太多 | 文件夹散落各处，哪个做到哪全靠记忆 | 一个总工作区 + 项目花名册，侧栏一眼看完 |
+| 🧠 AI 失忆 | 每次开新会话都要重新贴背景、解释上下文 | 档案自动注入开场 Prompt，AI 睁眼就知道前情 |
+| 🔁 知识流失 | 这次聊透的方案，下次换个会话就没了 | 归档写回 `.md` 档案，追加不覆盖，永久可查 |
 
-### 🔁 归档写回，形成闭环
-- **手动归档**：勾选历史会话 → 填写摘要 / 细节 / 涉及文件 → 一键入库。
-- **AI 自动归档**：内置 `record_module_done` 工具，AI 干完一个模块即可主动调用；`completion-gate` 会先判定"是否真的完工"（正常结束 + 本轮确实写过文件或跑过命令），防止空手写档案。
-
-### 🆕 本次更新（v0.2.0）
-- **小标签自助新建**：不用先去文件系统建目录——「启动会话」的下拉底部就有「＋ 新建小标签」，当场建档并自动勾选。
-- **归档追加不覆盖**：同名档案二次归档不再重写正文，而是保留全文、只更新 `last_updated`，并在文末追加一节
-  `## 追加记录（YYYY-MM-DD HH:mm）`；你手写在档案里的批注永远不会被吞掉。
-- **列表实时刷新**：抽屉头部与启动会话弹窗都带「↻ 刷新」，新建项目 / 新建小标签 / 归档后自动重读，不再需要重启 DSH。
-
-### ⚙️ 总工作区可热切换
-- 抽屉底部「设置」即可改总工作区：校验绝对路径 → 立即生效 → 持久化到 `config.json`。
-- 非法路径返回 400 且**不改动任何状态**；切换后花名册、会话扫描、新建项目全部跟随新根目录。
+> 一句话：**上一次会话的结论，是下一次会话的起点。**
 
 ---
+
+<a id="sec-features"></a>
+
+## 🧩 功能矩阵
+
+| | 能力 | 一句话说明 |
+|---|---|---|
+| 📇 | **项目花名册** | 登记 id / 名称 / 默认大标签，自动建目录与 `projects.json`，已存在目录会自动播种 |
+| 🗄️ | **两级标签档案柜** | `docs/<大标签>/<小标签>.md`，YAML frontmatter + 五段式正文，人类可读、Git 可 diff |
+| 🌿 | **三层子工作区** | 0 标签 → 项目根；1 标签 → `subtasks/<标签>`；多标签 → `subtasks/combo-*`，cwd 即上下文边界 |
+| 💉 | **背景注入** | 启动会话时读回同类档案，拼成开场背景注入新会话，不用再手贴上下文 |
+| 🔁 | **归档闭环** | 手动勾选历史会话归档，或让 AI 调用 `record_module_done` 工具自动写回 |
+| 🆕 | **小标签自助新建** | 在「启动会话」下拉底部直接「＋ 新建小标签」，当场建档，不用先碰文件系统 |
+| ➕ | **归档追加不覆盖** | 同名档案二次归档保留全文，只更新 `last_updated` 并追加一节 `## 追加记录` |
+| ↻ | **列表实时刷新** | 新建项目 / 新建标签 / 归档后自动重读，也可手动「↻ 刷新」，无需重启 DSH |
+| 🖥️ | **标准 / Computer Use 双模式** | 同一入口选择编码 Agent 或能看屏幕、动鼠标的 GUI Agent（见 [Computer Use 模式](#sec-computer-use)） |
+| ⚙️ | **总工作区热切换** | 抽屉底部「设置」改根目录，校验后即时生效并持久化；非法路径不改任何状态 |
+
+---
+
+<a id="sec-flow"></a>
+
+## 🔄 工作流
+
+```mermaid
+flowchart LR
+    A["① 新建项目<br/>写 projects.json"] --> B["② 选大标签 / 小标签<br/>可现场新建"]
+    B --> C["③ 启动子工作区<br/>subtasks/&lt;小标签&gt;"]
+    C --> D["④ AI 干活<br/>标准 / Computer Use"]
+    D --> E{"真完工了吗？<br/>completion-gate"}
+    E -- "否" --> D
+    E -- "是" --> F["⑤ 归档写回<br/>append 不覆盖"]
+    F --> G["⑥ 档案柜<br/>.dsh-hub/docs/&lt;大标签&gt;/&lt;小标签&gt;.md"]
+    G -- "下次开同类任务" --> H["读回档案<br/>注入开场背景"]
+    H --> C
+```
+
+> `record_module_done` 不是"模型说了算"：只有本轮正常结束、且确实写过文件或跑过命令，才允许写档案。
+
+---
+
+<a id="sec-shots"></a>
 
 ## 📸 界面预览
 
 <div align="center">
-  <img src="./docs/images/sidebar.png" alt="项目工坊侧边栏" width="300" />
+  <img src="./docs/images/dialog.png" width="700" alt="启动会话弹窗" />
   <br />
-  <sub><b>图 1 · 工作区花名册</b>：按「大标签 · 小标签」两级展开，右侧显示档案数与最近更新时间（真实界面截图，示例工作区）</sub>
+  <sub><b>① 启动会话</b>：勾选要注入的档案、选择「标准 / Computer Use」模式，插件自动计算子工作区并注入背景</sub>
 </div>
 
 <br />
 
 <div align="center">
-  <img src="./docs/images/architecture.svg" alt="架构图" width="920" />
-  <br />
-  <sub><b>图 2 · 架构总览</b>：浏览器侧只发 HTTP 请求，宿主侧独占磁盘读写，档案柜是两半之间的合同</sub>
+  <img src="./docs/images/sidebar.png" width="300" align="center" alt="项目花名册" />
 </div>
 
-<!-- TODO: 截图占位 —— 「启动会话」弹窗（含 ＋新建小标签）、归档弹窗、总工作区设置弹窗。
-     截取更多 UI 截图后放到 docs/images/ 并在此处补三张并排图。 -->
+<div align="center"><sub><b>② 工作区花名册</b>：按「大标签 · 小标签」两级展开，右侧显示档案数与最近更新时间</sub></div>
 
-> 💡 目录与两级标签的完整示意，见下方 [档案柜长什么样](#-档案柜长什么样)。
+<br />
+
+<div align="center">
+  <img src="./docs/images/archive.png" width="720" alt="档案 Markdown" />
+  <br />
+  <sub><b>③ 档案即知识库</b>：frontmatter 给机器读，正文给人读；追加模式下只变更 <code>last_updated</code> 并追加记录</sub>
+</div>
 
 ---
 
-## ⚡ 安装三段式
+<a id="sec-install"></a>
 
-### 环境与前置条件
+## 🚀 快速开始
 
-| 依赖 | 要求 | 说明 |
-|---|---|---|
-| DeepSeek Harness | 桌面版（Electron 壳），带 `webServer` / `tools` / `agentPresets` 扩展点 | 插件通过宿主注册路由与工具 |
-| Node.js | **>= 18**（推荐 20/22 LTS） | 插件为纯 ESM，无第三方依赖、无需安装任何 npm 包 |
-| 操作系统 | Windows / macOS / Linux | 文件操作全部走 `node:path`；默认示例路径是 Windows 风格，装好第一件事就是改总工作区 |
-| 权限 | 能读写 `~/.dsh/`（Windows: `%USERPROFILE%\.dsh\`） | 插件目录 + profile 配置都在这里 |
+### 前置条件
 
-> 插件**不联网、不需要 API key**。所有数据都留在你本机的 Markdown / JSON 文件里。
+| 依赖 | 要求 |
+|---|---|
+| DeepSeek Harness | 桌面版（Electron），带 `webServer` / `tools` / `agentPresets` 扩展点 |
+| Node.js | **>= 18**（插件为纯 ESM，无第三方依赖） |
+| 操作系统 | Windows / macOS / Linux |
+| 权限 | 可读写 `~/.dsh/`（Windows：`%USERPROFILE%\.dsh\`） |
 
-### 第 1 步 · 放进插件目录
+### 1 · 放进插件目录
 
 ```bash
 # macOS / Linux
@@ -123,11 +166,11 @@ git clone https://github.com/systemsssx/dsh-project-hub.git ~/.dsh/plugins/dsh-p
 git clone https://github.com/systemsssx/dsh-project-hub.git "$env:USERPROFILE\.dsh\plugins\dsh-project-hub"
 ```
 
-> 目录名必须叫 `dsh-project-hub`（与 `package.json` 的 `name` 一致）。
+目录名必须叫 `dsh-project-hub`（与 `package.json` 的 `name` 一致）。
 
-### 第 2 步 · 装配到 profile
+### 2 · 装配到 profile
 
-编辑你的 profile 清单 `~/.dsh/profiles/desktop/package.json`，把它加进 `bundles` 与 `dependencies`：
+编辑 `~/.dsh/profiles/desktop/package.json`，把它加进 `bundles` 与 `dependencies`：
 
 ```jsonc
 {
@@ -136,21 +179,20 @@ git clone https://github.com/systemsssx/dsh-project-hub.git "$env:USERPROFILE\.d
       "bundles": [
         "@deepseek-ai/dsh-base",
         "@deepseek-ai/dsh-web-app",
-        "dsh-project-hub"          // ← 加这一行
+        "dsh-project-hub"            // ← 新增
       ],
       "patchReload": "live"
     }
   },
   "dependencies": {
-    // macOS / Linux:
-    "dsh-project-hub": "link:/Users/<you>/.dsh/plugins/dsh-project-hub"
-    // Windows:
-    // "dsh-project-hub": "link:C:/Users/<you>/.dsh/plugins/dsh-project-hub"
+    "dsh-project-hub": "link:C:/Users/<you>/.dsh/plugins/dsh-project-hub"
   }
 }
 ```
 
-然后改一处总工作区（**必做**）：打开插件自带的 `cordis.patch.yml`，把 `globalWorkspaceRoot` 换成你自己的绝对路径：
+### 3 · 设置总工作区
+
+打开插件自带的 `cordis.patch.yml`，把 `globalWorkspaceRoot` 改成你自己的绝对路径：
 
 ```yaml
 - insert:
@@ -158,230 +200,244 @@ git clone https://github.com/systemsssx/dsh-project-hub.git "$env:USERPROFILE\.d
       name: 'dsh-project-hub'
       config:
         enabled: true
-        globalWorkspaceRoot: 'C:\work'   # ← 改成你的总工作区，例如 D:\projects
+        globalWorkspaceRoot: 'C:\work'   # ← 改成你的目录，例如 D:\projects
 ```
 
-### 第 3 步 · 重启并启用
+> 也可以用环境变量 `DSH_PROJECT_HUB_ROOT` 兜底；装好后还能在插件「设置」里随时热切换。
 
-1. 重启 DSH（或等 profile 热重载完成）。
-2. 左侧边栏出现「**＋ 项目工坊**」入口，点开即项目抽屉。
-3. 首次使用：点抽屉底部「设置」，确认/修改总工作区 → 保存（会自动创建 `.dsh-hub/projects.json`）。
+### 4 · 重启并打开
+
+1. 重启 DSH（或等 profile 热重载完成）；
+2. 左侧边栏出现「**＋ 项目工坊**」；
+3. 点开抽屉 → 底部「设置」确认总工作区 → `＋ 新建项目` 开始第一个项目。
 
 ---
 
-## 🧭 使用指南：一个模块的完整生命周期
+<a id="sec-computer-use"></a>
 
-```text
-① 登记项目          ② 建标签/档案            ③ 开子工作区           ④ 归档写回
-＋ 新建项目    →   默认大标签 / ＋新建小标签  →   勾选小标签启动会话  →   勾选历史会话归档
-   ↓                     ↓                        ↓                      ↓
-花名册 + 目录        .dsh-hub/docs/<大标签>/      cwd = subtasks/<小标签>    md 追加记录 + frontmatter
-                     <小标签>.md + 背景注入        AI 带着前情提要先干活     下次开会话再读回来
-```
+## 🖥️ Computer Use 模式
 
-1. **登记项目**：`＋ 新建项目` → 填 id / 名称 / 默认大标签。
-2. **新建小标签**（v0.2.0）：在「启动会话」弹窗里选好大标签 → 下拉底部「＋ 新建小标签」→ 输入名字确定。
-3. **启动会话**：勾选一个或多个小标签 → 选择模式（标准 / Computer Use）→ 启动。
-   - 0 个标签 → 在项目根目录开；
-   - 1 个标签 → `subtasks/<小标签>/`；
-   - 2+ 个标签 → `subtasks/combo-<标签>-<标签>/`（复合工作区）。
-4. **归档**：点「归档」→ 勾选已完成的会话 → 填摘要、细节、涉及文件 → 确认归档入库。
-5. **下次接手**：再为同一小标签启动会话，已有档案会作为背景自动注入。
+「启动会话」里的第二个模式：让 AI **看着界面操作电脑**——截图、移动鼠标、点击、键盘输入。
 
-### 🗂️ 档案柜长什么样
+### 它会做什么
+
+- 在全新会话中启动一个 GUI 驱动型 Agent（preset `computer-use`），cwd 仍钉在子工作区；
+- 允许 Agent 截屏、模拟鼠标键盘、操作前台应用，适合"打开应用点一遍验证 UI"这类任务。
+
+### 前置条件与权限说明
+
+| 项 | 说明 |
+|---|---|
+| 运行环境 | **需要 DSH 桌面版**（Electron 壳 + 真实 GUI）；无头环境不可用 |
+| 额外 bundle | 需要 profile 里装配了能提供 `computer-use` Agent preset 的 bundle（例如 `dsh-orb`）。**缺失时该模式自动从下拉里隐藏**，只留「标准模式」，不报错、不崩 UI |
+| 权限策略 | 从项目工坊启动的会话固定使用**完全权限**：`sandbox: danger-full-access` + `approval: never` |
+| 这意味着 | AI 可以读写本机任意文件、执行命令、控制鼠标键盘——只在信任当前任务时使用 |
+| 建议 | 纯代码任务选「标准模式」；到 DSH「设置 → 权限」确认默认 preset 符合预期 |
+| 第三方安装 | 插件自身零依赖、不联网；Computer Use 的能力来自宿主 bundle，不随插件打包，别人装了也能跑（但同样需要那个 bundle） |
+
+> ⚠️ Computer Use 会把屏幕内容交给模型。处理密码、私密窗口前请先切走或关闭。
+
+---
+
+<a id="sec-archive"></a>
+
+## 🗄️ 档案格式
 
 ```text
 <总工作区>/
 ├─ .dsh-hub/
-│  └─ projects.json                  # 项目花名册（id / name / path / defaultTags）
+│  └─ projects.json                 # 项目花名册
 └─ my-project/
-   ├─ .dsh-hub/
-   │  └─ docs/
-   │     ├─ UI组件/
-   │     │  ├─ 侧边栏按钮.md          # 一份模块档案 = 小标签
-   │     │  └─ 设置弹窗.md
-   │     └─ Core算法/
-   │        └─ 渲染管线.md
+   ├─ .dsh-hub/docs/
+   │  ├─ UI组件/
+   │  │  ├─ 侧边栏按钮.md            # 一份模块档案 = 一个小标签
+   │  │  └─ 设置弹窗.md
+   │  └─ Core算法/
+   │     └─ 渲染管线.md
    └─ subtasks/
       ├─ 侧边栏按钮/                  # 单标签子工作区
       └─ combo-设置弹窗-主题/         # 多标签复合子工作区
 ```
 
-一份档案的骨架（追加模式不会破坏你手写的任何内容）：
+frontmatter 是**给机器读的索引**（`project_id` / `big_tag` / `small_tag` / `workspace_path` / `last_updated` / `session_id` / `status`），
+正文固定五段：核心目标 / 实现细节 / 涉及文件 / 验证方式 / 下一步。
 
 ```markdown
 ---
 project_id: "my-project"
-project_name: "我的项目"
 big_tag: "UI组件"
 small_tag: "侧边栏按钮"
-workspace_path: "<总工作区>\\my-project\\subtasks\\侧边栏按钮"
-last_updated: "2026-10-28T00:30:00.000Z"
-session_id: "session-..."
+workspace_path: "<总工作区>/my-project/subtasks/侧边栏按钮"
+last_updated: "2026-10-28T01:28:53.202Z"
 status: "completed"
 ---
 
 # 模块全景档案：侧边栏按钮
-> **物理工作区**：`<总工作区>\my-project\subtasks\侧边栏按钮`
-
 ### 一、核心目标与技术背景
 ### 二、核心实现细节与关键变更
 ### 三、涉及文件与交付物
-### 四、验证方式与踩坑
-### 五、下一步 / 待办
+### 四、踩坑记录与重要约定
+### 五、未完成项与下一步
 
-## 追加记录（2026-10-28 09:30） · 第二轮迭代
-（追加模式下，只往文末补这一节，正文原样保留）
+## 追加记录（2026-10-28 09:28）
+（append 模式只往文末补这一节，手写正文原样保留）
 ```
 
 ---
 
-## 🧠 Computer Use 模式
+<a id="sec-tests"></a>
 
-「启动会话」弹窗里的第二个模式。它让 AI 不仅能改文件，还能**真正看着界面操作电脑**：截图、移动鼠标、点击、键盘输入。
-
-**它会做什么**
-
-- 在全新会话中启动一个 GUI 驱动型 Agent（预设 `computer-use`），cwd 仍然钉在子工作区。
-- 允许 Agent 截屏、模拟鼠标键盘、操作前台应用；适合"打开应用点一遍验证 UI"这类肉眼任务。
-
-**依赖与注意事项**
-
-| 项 | 说明 |
-|---|---|
-| 依赖 bundle | 需要 profile 里装配了能提供 `computer-use` Agent preset 的 bundle（例如 [`dsh-orb`](https://github.com/systemsssx)）。**缺失时该模式会自动从下拉里隐藏**，只留「标准模式」，不会报错、不会崩 UI。 |
-| 权限策略 | 项目工坊启动的任何会话都固定使用**完全权限**（`sandbox: danger-full-access`，审批 never）。这意味着 AI 可以读写本机任意文件、执行命令。 |
-| 建议 | 只在确实需要看 GUI 时选它；纯代码任务用「标准模式」。装好插件后，建议先到 DSH「设置 → 权限」确认默认 preset 符合你的预期。 |
-| 隐私 | Computer Use 会把屏幕内容交给模型。涉及密码、私密窗口时请先切走或关闭。 |
-
-> 插件本身**不绕过** DSH 的权限系统：它只是为新会话指定 `danger-full-access` preset，实际拦截逻辑仍由 DSH 的 sandbox / approval 掌控。
-
----
-
-## 🏗️ 架构与实现
-
-七个核心文件，两半结构（界面 / 宿主）：
-
-| 文件 | 角色 | 说明 |
-|---|---|---|
-| `lib/client.js` | 🖥️ 前台接待 | 单文件 React 界面（不写 JSX，全用 `React.createElement`），负责抽屉、启动会话、归档弹窗、设置弹窗；只发 HTTP，不碰磁盘 |
-| `lib/index.js` | 🚪 传达室 + 调度 | 注册 **8 条** `/project-hub/*` 路由、`record_module_done` 工具、Agent 模式目录、会话启动与背景注入 |
-| `lib/doc-manager.js` | 🗄️ 档案管理员 | 花名册读写、三层子工作区计算、档案 Markdown 读写、frontmatter 解析、**追加不覆盖** |
-| `lib/completion-gate.js` | 🔍 质检员 | 定义"什么算真完工"，守住 `record_module_done`：不是真干完不给写档案 |
-| `cordis.patch.yml` | 🔌 接线图 | 声明 bundle 插入、开关与总工作区 |
-| `package.json` | 🪪 身份证 | `dsh.bundle.patch` + `dsh.client` 两端声明 |
-| `config.json` | 📝 便签本 | 运行期生成，只记总工作区；**不入库**（`.gitignore` 已排除） |
-
-**HTTP 路由一览**
-
-| 方法 | 路径 | 用途 |
-|---|---|---|
-| GET | `/project-hub/state` | 项目树 + 两级标签档案 + Agent 模式目录 |
-| GET | `/project-hub/sessions` | 历史会话列表（归档弹窗用） |
-| POST | `/project-hub/create-project` | 新建项目（建目录 + 写花名册） |
-| POST | `/project-hub/launch-session` | 启动子工作区会话（背景注入） |
-| POST | `/project-hub/create-doc` | 新建小标签档案（v0.2.0） |
-| POST | `/project-hub/ingest-history` | 归档历史会话为高保真 Markdown |
-| POST | `/project-hub/remove-project` | 仅移出注册表（不删文件） |
-| GET/POST | `/project-hub/settings` | 读取 / 热切换总工作区 |
-
-**三个设计取舍**
-
-1. **为什么分两半**：安全边界。页面跑在浏览器里不能直接读写硬盘，宿主说了算；界面只能递条子（HTTP），宿主同意才动文件。
-2. **为什么用 HTTP 而不是 IPC**：宿主的本地 webServer 本就在，挂路由最轻；标准 HTTP 让同一份代码在桌面壳和普通网页里都能活。
-3. **为什么存 Markdown + frontmatter 而不是数据库**：人类可读、Git 可 diff、AI 可直接注入。文件头里的 `workspace_path` / `last_updated` 是给机器读的索引，不是散文。
-
-更完整的原理说明见 [`docs/architecture.md`](./docs/architecture.md)。
-
----
-
-## 🧪 测试与文档体系
+## 🧪 测试与文档
 
 ```bash
-npm test          # 等价于 node --test test/*.mjs，当前 91 个用例全绿
-npm run check     # 语法自检：四个 lib 文件 node --check
+npm test        # node --test test/*.mjs —— 当前 91 个用例全绿
+npm run check   # 四个 lib 文件语法自检
 ```
 
-| 测试文件 | 覆盖范围 |
+| 文档 / 测试 | 内容 |
 |---|---|
-| `test/run.mjs` | 花名册、三层子工作区、档案读写、**追加不覆盖**、frontmatter 不重复、completion-gate |
-| `test/integration.mjs` | 宿主 8 条路由、总工作区切换、CORS / Private Network Access 预检、绝对 http(s) Base 解析 |
-| `test/ingest-form.mjs` / `test/ingest-dropdown.mjs` | 归档表单、大/小标签下拉、**＋新建小标签**流程 |
-| `test/settings-host.mjs` / `test/settings-ui.mjs` | 总工作区读取/持久化/非法值不突变、设置入口与弹窗、原生感控件 |
-| `test/client-entry.mjs` / `test/client-guard.mjs` | client 入口注册、绝对 URL、模块系统顶层 guard |
-| `test/theme-tokens.mjs` + `dsw-token-manifest.json` | 主题 token 真实性：每个 `--dsw-*` 变量都对照 app.asar 扫描清单校验 |
+| [`docs/architecture.md`](./docs/architecture.md) | 架构与设计取舍：两半结构、8 条路由、数据契约、追加语义、模式接线 |
+| [`CONTRIBUTING.md`](./CONTRIBUTING.md) | 提 Issue / PR 的流程、代码风格、测试要求 |
+| `test/run.mjs` | 花名册、三层工作区、档案读写、追加不覆盖、completion-gate |
+| `test/integration.mjs` | 宿主路由、总工作区切换、CORS/PNA 预检、绝对 http(s) 基址 |
+| `test/ingest-*.mjs` / `test/settings-*.mjs` | 归档表单、标签下拉、新建小标签、设置弹窗 |
+| `test/theme-tokens.mjs` | 每个 `--dsw-*` 主题变量对照 app.asar 扫描清单校验 |
 
-> 测试数据全部写在 `test/.tmp-*`（`.gitignore` 已排除），**不会碰你的真实总工作区**。
-
----
-
-## 📦 兼容性与边界
-
-- **已验证**：DSH 桌面版 0.2.x profile，Node 24 / Windows 11；测试在纯 Node 环境跑（不需要 GUI）。
-- **本地端口**：宿主 HTTP 地址由桌面壳注入（`__DSH_TRANSPORT__.streamBaseUrl` 或 `dshDesktopBoot` IPC 桥）。只有两者都缺失时才回退到 `http://127.0.0.1:9760`——**没有需要你手动配置的端口**，也不要把插件指向公网地址。
-- **未验证**：极老的 DSH 版本若缺 `agentPresets` / `webServer` 扩展点，插件会降级（路由不可用、Computer Use 隐藏），但不会拖垮宿主。
-- **不做的事**：不删除你的项目文件（移出列表只改注册表）；不上传任何数据；不接管你的密钥。
+测试数据只写在 `test/.tmp-*`，**不会碰你的真实总工作区**。
 
 ---
 
-## 🗺️ 路线图 / Roadmap
+<a id="sec-faq"></a>
 
-- [ ] 📤 档案导出：一键把某大标签下所有档案导出成单文件 PDF / HTML 交接手册
-- [ ] 🧭 任务看板视图：小标签从"档案"升级成"卡片"，支持待办/进行中/已完成
-- [ ] 🔎 全局档案搜索：跨项目、跨标签全文检索（纯前端 + `state` 增量）
-- [ ] 🌐 多语言界面：`zh-CN` / `en-US` 文案包（当前为中文）
-- [ ] 🧩 与 dsh-auto-handoff 联动：会话交接文件直接落进对应小标签档案
+## ❓ 常见问题
+
+<details>
+<summary><b>装好后侧边栏没有「＋ 项目工坊」？</b></summary>
+
+1. 确认 profile 的 `bundles` 里有 `dsh-project-hub`、`dependencies` 里有对应的 `link:`；
+2. 确认 `~/.dsh/plugins/dsh-project-hub/package.json` 存在且目录名正确；
+3. 完全重启 DSH（或触发 profile 重载）。
+</details>
+
+<details>
+<summary><b>点「启动会话」没反应 / 报 404？</b></summary>
+
+插件所有请求都走宿主的本地 HTTP 路由。先重启一次；仍不行就打开开发者工具看 `/project-hub/state` 是否 200。
+若你是自建 `dsh web` 反向代理，请保证页面与 Host 同源，或保留 `__DSH_TRANSPORT__.streamBaseUrl` 注入。
+</details>
+
+<details>
+<summary><b>模式下拉里只有「标准模式」？</b></summary>
+
+说明当前 profile 没有提供 `computer-use` preset 的 bundle（如 `dsh-orb`）。这是预期降级：装上层 bundle 后重启即可出现。
+</details>
+
+<details>
+<summary><b>归档会不会覆盖我手写的档案内容？</b></summary>
+
+不会。默认 `append`：只更新 frontmatter 的 `last_updated`，在文末追加 `## 追加记录（时间）`，正文一字不动。
+只有显式传 `mode: 'overwrite'` 才会重写（插件 UI 不会这么做）。
+</details>
+
+<details>
+<summary><b>config.json 在哪？会被提交到 Git 吗？</b></summary>
+
+`<插件目录>/config.json`，只存总工作区路径，保存设置时才生成。它已在 `.gitignore` 里，不会入库。
+优先级：`cordis.patch.yml` → `DSH_PROJECT_HUB_ROOT` → `C:\work`；「设置」里保存过的值优先级最高。
+</details>
+
+<details>
+<summary><b>把项目「移出列表」会删我文件吗？</b></summary>
+
+不会。只从 `projects.json` 移除记录，项目目录、档案、子工作区全部原样保留，随时可重新登记。
+</details>
+
+<details>
+<summary><b>支持 macOS / Linux 吗？</b></summary>
+
+支持。所有路径都走 `node:path`，只是默认示例路径是 Windows 风格，首装记得把总工作区改成你自己的绝对路径。
+</details>
 
 ---
 
-## ⭐ Star 一下，就是最大的支持
+<a id="sec-roadmap"></a>
+
+## 🗺️ 路线图 · Roadmap
+
+- [ ] 📤 **档案导出**：把某个大标签下的全部档案导出成单文件 HTML/PDF 交接手册
+- [ ] 🧭 **任务看板**：小标签升级成卡片，支持「待办 / 进行中 / 已完成」
+- [ ] 🔎 **全局搜索**：跨项目、跨标签全文检索档案
+- [ ] 🌐 **多语言界面**：`zh-CN` / `en-US` 文案包
+- [ ] 🧩 **与 dsh-auto-handoff 联动**：会话交接文件直接落进对应小标签档案
+
+---
+
+<a id="sec-star"></a>
+
+## ⭐ Star 支持
 
 <div align="center">
 
-如果这个插件帮你省下了"重新解释一遍项目"的时间——
+**如果这个插件帮你省下了"重新解释一遍项目"的时间——**
 
-**点个 ⭐ Star，让我知道它值得继续做下去。**
+**点个 ⭐ Star，就是继续做下去最直接的动力。**
 
-[![Star this repo](https://img.shields.io/github/stars/systemsssx/dsh-project-hub?style=for-the-badge&logo=github&label=%E2%AD%90%20Star)](https://github.com/systemsssx/dsh-project-hub/stargazers)
-&nbsp;&nbsp;
-[![Fork this repo](https://img.shields.io/badge/Fork-%E2%91%A1%20%E6%8B%BF%E8%B5%B0%E6%94%B9-blue?style=for-the-badge&logo=github)](https://github.com/systemsssx/dsh-project-hub/fork)
+[![Star](https://img.shields.io/github/stars/systemsssx/dsh-project-hub?style=for-the-badge&logo=github&label=%E2%AD%90%20Star)](https://github.com/systemsssx/dsh-project-hub/stargazers)
+&nbsp;
+[![Fork](https://img.shields.io/badge/Fork-%E5%B8%A6%E8%B5%B0%E6%94%B9-blue?style=for-the-badge&logo=github)](https://github.com/systemsssx/dsh-project-hub/fork)
+
+<sub>Fork 之后欢迎把改动推回来：错别字、新策略、真机踩坑都收。</sub>
 
 </div>
 
-> Fork 之后欢迎把改动推回来：小到文档错别字、大到新的工作区策略，都收。
-
 ---
+
+<a id="sec-community"></a>
 
 ## 💬 交流与反馈
 
-**这个项目更看重"用的人怎么想"，而不是"代码有多少行"。**
-
-| 我想… | 去哪儿 | 说明 |
+| 我想… | 去哪儿 | 请带上 |
 |---|---|---|
-| ❓ 提问 / 讨论用法 / 秀配置 | **[Discussions](https://github.com/systemsssx/dsh-project-hub/discussions)** | 推荐先来这儿：Q&A、想法、最佳实践都欢迎 |
-| 🐛 报 Bug | **[Issues · Bug](https://github.com/systemsssx/dsh-project-hub/issues/new?template=bug_report.md)** | 请填：DSH 版本、OS、复现步骤、期望 vs 实际、`/project-hub/state` 返回结构（记得脱敏路径） |
-| 💡 提需求 | **[Issues · Feature](https://github.com/systemsssx/dsh-project-hub/issues/new?template=feature_request.md)** | 请说清"你的使用场景"和"现在卡在哪"，比"想要个按钮"有用得多 |
-| 🛠️ 提 PR | **[Pull Request](https://github.com/systemsssx/dsh-project-hub/compare)** | 先开 Issue 对齐方向；PR 里请附 `npm test` 输出 |
+| ❓ 提问 / 讨论用法 / 分享配置 | **[Discussions](https://github.com/systemsssx/dsh-project-hub/discussions)** | 你的工作流截图（记得脱敏） |
+| 🐛 报 Bug | **[Issues · Bug](https://github.com/systemsssx/dsh-project-hub/issues/new?template=bug_report.md)** | DSH 版本、OS、复现步骤、期望 vs 实际、报错日志 |
+| 💡 提需求 | **[Issues · Feature](https://github.com/systemsssx/dsh-project-hub/issues/new?template=feature_request.md)** | 使用场景 + 现在卡在哪 |
+| 🛠️ 提 PR | **[Pull Request](https://github.com/systemsssx/dsh-project-hub/compare)** | 改动说明 + `npm test` 输出 |
 
-发帖前的小约定：**别贴 token、别贴真实绝对路径/用户名**，用 `<总工作区>` 占位即可。
-
----
-
-## 🙏 致谢
-
-- [DeepSeek Harness](https://github.com/deepseek-ai) —— 提供 Electron 外壳、插件体系、Agent preset 与本地 webServer 扩展点。
-- [Cordis](https://github.com/deepseek-ai) 插件管线 —— 本插件的 bundle patch 与热重载都建在它上面。
-- 所有在 Discussions 里提过想法、提过 Bug 的人。
+> **有小问题先去 Discussions**（Q&A 分类），确认是 Bug 再开 Issue，能少绕一圈。
+> 发帖别贴 token / 真实绝对路径 / 用户名，用 `<总工作区>`、`<项目>` 占位。
 
 ---
 
-## 📄 License
+<a id="sec-contributing"></a>
 
-本项目基于 [MIT License](./LICENSE) 开源 · Copyright (c) 2026 systemsssx。
+## 🤝 贡献
 
-你可以自由使用、修改、分发（含商用），保留版权与许可声明即可。
+```bash
+git clone https://github.com/systemsssx/dsh-project-hub.git
+cd dsh-project-hub
+npm test          # 91 用例必须全绿
+npm run check
+```
+
+- 纯 ESM、零运行时依赖，不新增 `dependencies`；
+- 界面只在 `lib/client.js`（`React.createElement`，不写 JSX），磁盘只在宿主侧；
+- 档案写入默认 `append`，别悄悄改成覆盖；
+- 提交信息用 Conventional Commits（`feat:` / `fix:` / `docs:` / `test:`）。
+
+完整规范见 [`CONTRIBUTING.md`](./CONTRIBUTING.md)。
+
+---
+
+<a id="sec-license"></a>
+
+## 📄 License & 致谢
+
+[MIT License](./LICENSE) © 2026 systemsssx
+
+感谢 [DeepSeek Harness](https://github.com/deepseek-ai) 提供的 Electron 外壳、Cordis 插件管线与 Agent preset 扩展点；
+感谢所有在 Discussions 里提过想法、报过 Bug 的人。
 
 <div align="center">
 <br />
-<sub>Made with 🧰 for people who hand their projects to AI — and to the next human.</sub>
+<sub>Made for people who hand their projects to AI — and to the next human. 🧰</sub>
 </div>
