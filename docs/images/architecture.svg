@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" role="img" aria-label="dsh-project-hub architecture: browser client, host plugin, disk archive">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7280"/>
+    </marker>
+    <marker id="arrowDash" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="540" rx="18" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5"/>
+
+  <!-- ============ 浏览器侧 ============ -->
+  <rect x="28" y="56" width="286" height="300" rx="14" fill="#eef2ff" stroke="#6366f1" stroke-width="1.6"/>
+  <text x="46" y="88" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="16" font-weight="700" fill="#312e81">🖥️ 浏览器侧 · lib/client.js</text>
+  <text x="46" y="110" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="12.5" fill="#4f46e5">单文件 React 界面 · 只发请求，不碰磁盘</text>
+
+  <rect x="46" y="128" width="250" height="34" rx="8" fill="#ffffff" stroke="#c7d2fe"/>
+  <text x="60" y="150" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="13.5" fill="#1f2937">📇 项目抽屉 / 花名册</text>
+
+  <rect x="46" y="172" width="250" height="34" rx="8" fill="#ffffff" stroke="#c7d2fe"/>
+  <text x="60" y="194" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="13.5" fill="#1f2937">🚀 启动会话（标签 + 模式）</text>
+
+  <rect x="46" y="216" width="250" height="34" rx="8" fill="#ffffff" stroke="#c7d2fe"/>
+  <text x="60" y="238" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="13.5" fill="#1f2937">🗃️ 归档弹窗 / 新建小标签</text>
+
+  <rect x="46" y="260" width="250" height="34" rx="8" fill="#ffffff" stroke="#c7d2fe"/>
+  <text x="60" y="282" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="13.5" fill="#1f2937">⚙️ 总工作区设置</text>
+
+  <text x="46" y="330" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="11.5" fill="#6b7280">React.createElement · 共享宿主 React 实例</text>
+
+  <!-- ============ HTTP 箭头 ============ -->
+  <line x1="318" y1="200" x2="452" y2="200" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="452" y1="228" x2="318" y2="228" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="336" y="176" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#111827">HTTP JSON</text>
+  <text x="330" y="268" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="11.5" fill="#4b5563">8 条 /project-hub/* 路由</text>
+  <text x="330" y="288" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="11.5" fill="#4b5563">CORS / PNA 预检放行</text>
+
+  <!-- ============ 宿主侧 ============ -->
+  <rect x="460" y="56" width="512" height="168" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="478" y="88" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="16" font-weight="700" fill="#14532d">🧠 宿主侧 · lib/index.js</text>
+  <text x="478" y="110" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="12.5" fill="#15803d">唯一能读写文件的一侧 · Cordis 插件实例</text>
+
+  <rect x="478" y="126" width="230" height="32" rx="8" fill="#ffffff" stroke="#bbf7d0"/>
+  <text x="492" y="147" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="13" fill="#1f2937">8 条 /project-hub/* 路由</text>
+
+  <rect x="722" y="126" width="232" height="32" rx="8" fill="#ffffff" stroke="#bbf7d0"/>
+  <text x="736" y="147" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="13" fill="#1f2937">record_module_done 工具</text>
+
+  <rect x="478" y="168" width="476" height="32" rx="8" fill="#ffffff" stroke="#bbf7d0"/>
+  <text x="492" y="189" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="13" fill="#1f2937">会话启动：算 cwd → 固定 Agent 模式 → 注入档案背景</text>
+
+  <text x="478" y="218" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="11.5" fill="#4b5563">模式：标准模式 ／ Computer Use 模式（缺 preset 自动隐藏）</text>
+
+  <!-- completion-gate -->
+  <rect x="460" y="248" width="240" height="108" rx="14" fill="#fff7ed" stroke="#f59e0b" stroke-width="1.6"/>
+  <text x="478" y="278" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="15" font-weight="700" fill="#9a3412">🔍 completion-gate</text>
+  <text x="478" y="301" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="12" fill="#92400e">判定「真完工」：正常结束 +</text>
+  <text x="478" y="320" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="12" fill="#92400e">本轮确实写过文件 / 跑过命令</text>
+  <text x="478" y="342" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="11" fill="#a16207">空手不让写档案</text>
+
+  <!-- doc-manager -->
+  <rect x="720" y="248" width="252" height="108" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="738" y="278" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="15" font-weight="700" fill="#1e3a8a">🗄️ doc-manager</text>
+  <text x="738" y="301" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="12" fill="#1d4ed8">花名册 · 三层子工作区</text>
+  <text x="738" y="320" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="12" fill="#1d4ed8">档案读写 · frontmatter</text>
+  <text x="738" y="342" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="11" fill="#3b82f6">追加不覆盖 · 只更新 last_updated</text>
+
+  <!-- arrows between host modules -->
+  <line x1="700" y1="184" x2="700" y2="246" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="580" y1="248" x2="580" y2="226" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="700" y1="302" x2="716" y2="302" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="604" y="242" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="10.5" fill="#6b7280">归档前质检</text>
+
+  <!-- ============ 磁盘 ============ -->
+  <rect x="28" y="382" width="944" height="132" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="1.6"/>
+  <text x="46" y="412" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="16" font-weight="700" fill="#0f172a">💾 磁盘 · 你的总工作区（Markdown + JSON，可 Git 可备份）</text>
+
+  <rect x="46" y="428" width="276" height="66" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="62" y="452" font-family="Consolas,'Cascadia Mono',monospace" font-size="12.5" fill="#0f172a">.dsh-hub/projects.json</text>
+  <text x="62" y="474" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="11.5" fill="#475569">项目花名册（id / name / path / tags）</text>
+
+  <rect x="340" y="428" width="330" height="66" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="356" y="452" font-family="Consolas,'Cascadia Mono',monospace" font-size="12.5" fill="#0f172a">&lt;项目&gt;/.dsh-hub/docs/&lt;大标签&gt;/&lt;小标签&gt;.md</text>
+  <text x="356" y="474" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="11.5" fill="#475569">模块档案：frontmatter + 五段正文 + 追加记录</text>
+
+  <rect x="688" y="428" width="266" height="66" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="704" y="452" font-family="Consolas,'Cascadia Mono',monospace" font-size="12.5" fill="#0f172a">&lt;项目&gt;/subtasks/&lt;小标签&gt;/</text>
+  <text x="704" y="474" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="11.5" fill="#475569">子工作区（combo-* = 多标签复合）</text>
+
+  <!-- doc-manager -> disk -->
+  <line x1="846" y1="356" x2="846" y2="424" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="852" y="394" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="11.5" fill="#4b5563">读写</text>
+
+  <!-- disk -> host (read back & inject) dashed -->
+  <path d="M 300 428 C 300 390 340 376 380 376 L 436 376 C 452 376 452 300 452 300 L 452 232" fill="none" stroke="#8b5cf6" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#arrowDash)"/>
+  <text x="60" y="378" font-family="'Segoe UI','Microsoft YaHei',system-ui,sans-serif" font-size="11.5" fill="#7c3aed">读回档案 → 注入新会话开场背景</text>
+</svg>

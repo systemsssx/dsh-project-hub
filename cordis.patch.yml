@@ -1,0 +1,13 @@
+# dsh-project-hub —— DSH profile 接线图（bundle patch）
+#
+# globalWorkspaceRoot = 「总工作区」：所有项目目录都建在它下面，必须是绝对路径。
+# 下面是示例值，请改成你自己的目录，例如：
+#   Windows        : 'C:\work'
+#   macOS / Linux  : '/Users/<you>/work' 或 '/home/<you>/work'
+# 装好并启动 DSH 后，也可以在插件抽屉底部的「设置」里随时切换（即时生效、无需重启）。
+- insert:
+    - id: project-hub
+      name: 'dsh-project-hub'
+      config:
+        enabled: true
+        globalWorkspaceRoot: 'C:\work'

@@ -1,0 +1,64 @@
+{
+  "name": "dsh-project-hub",
+  "version": "0.2.0",
+  "description": "DSH Project Hub — a DeepSeek Harness plugin that chains projects, two-tier tag archives, sub-workspaces and AI sessions into one handover-ready workflow.",
+  "type": "module",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "private": true,
+  "author": "systemsssx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/systemsssx/dsh-project-hub.git"
+  },
+  "homepage": "https://github.com/systemsssx/dsh-project-hub#readme",
+  "bugs": {
+    "url": "https://github.com/systemsssx/dsh-project-hub/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "plugin",
+    "project-management",
+    "workspace",
+    "knowledge-base",
+    "handover",
+    "ai-session",
+    "markdown",
+    "frontmatter"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/*.mjs",
+    "check": "node --check lib/index.js && node --check lib/doc-manager.js && node --check lib/completion-gate.js && node --check lib/client.js"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "test",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# 统一换行符：仓库内一律 LF，检出时按平台处理
+* text=auto eol=lf
+
+# 二进制素材不做换行转换
+*.png binary
+*.svg text eol=lf
+*.ico binary
